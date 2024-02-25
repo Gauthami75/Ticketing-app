@@ -3,8 +3,6 @@ import axios from 'axios';
 import '../styles.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import Head from 'next/head';
-//import { Link } from 'react-router-dom';
 
 const TicketForm = () => {
   const [title, setTitle] = useState('');

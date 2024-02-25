@@ -1,7 +1,5 @@
 import { MongoClient } from 'mongodb';
 import nodemailer from 'nodemailer';
-import nc from 'next-connect';
-//import multer from 'multer';
 
 const client = new MongoClient(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -17,7 +15,6 @@ async function connectToDatabase() {
   }
 }
 // Multer configuration for handling file uploads
-//const upload = multer({ dest: 'uploads/' });
 
 export default async function handler(req, res) {
   await connectToDatabase()
@@ -40,7 +37,6 @@ export default async function handler(req, res) {
       status:"OPEN"
     });
 
-    //send mail
     // Send email notification
     const transporter = nodemailer.createTransport({
       host: 'smtpout.secureserver.net',
