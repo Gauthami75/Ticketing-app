@@ -109,11 +109,11 @@ const TicketForm = () => {
         <div className="form-group">
           <label>Email:</label>
           <input type="email" className="form-control" value={email} onChange={handleEmailChange} required />
-        </div>
+        </div><br/>
         <div className="form-group">
           <label>Photos:(attach a screen shot)</label>
           <input type="file" className="form-control-file" accept="image/*" multiple onChange={handlePhotoChange} required />
-        </div>
+        </div><br/>
         {photos && ( // Check if photos is not null or undefined
           <div className="form-group">
             <label>Selected Photo:</label>
