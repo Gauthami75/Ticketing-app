@@ -40,7 +40,7 @@ const TicketForm = () => {
   formData.append('title', title);
   formData.append('description', description);
   formData.append('email', email);
-  if (photos) { // Only append photos if they exist
+  if (photos) { 
     formData.append('photos', photos);
   }
 
@@ -65,7 +65,7 @@ const TicketForm = () => {
       setTitle('');
       setDescription('');
       setEmail('');
-      setPhotos([]);
+      setPhotos(null);
       setErrorMessage('');
       setSuccessMessage('Ticket submitted successfully!');
       setTimeout(() => {
@@ -121,7 +121,7 @@ const TicketForm = () => {
           <label>Photos:(attach a screen shot)</label>
           <input type="file" className="form-control-file" accept="image/*" multiple onChange={handlePhotoChange} />
         </div><br/>
-        {photos ? (
+        {photos && (
           <div className="form-group">
             <label>Selected Photo:</label>
             <div>
@@ -133,7 +133,7 @@ const TicketForm = () => {
               </div>
             </div>
           </div>
-        ):""}
+        )}
         
         <div style={{display:'flow'}}><button type="submit" className="btn btn-primary" disabled={loading}>Submit</button>  <Link href='/ticketList' style={{marginLeft:'300px'}}>View Tickets</Link></div>
       </form>
