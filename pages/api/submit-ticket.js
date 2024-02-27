@@ -12,6 +12,7 @@ async function connectToDatabase() {
     console.log('Connected to MongoDB Atlas');
   } catch (error) {
     console.error('Error connecting to MongoDB Atlas', error);
+    throw error;
   }
 }
 // Multer configuration for handling file uploads
@@ -73,6 +74,9 @@ export default async function handler(req, res) {
     console.error('Error submitting ticket:', error);
     res.status(500).json({ success: false, error: 'Failed to submit ticket' });
   } 
+  finally {
+    await client.close();
+  }
  }
  if(req.method === 'GET'){
   try {
@@ -88,6 +92,9 @@ export default async function handler(req, res) {
     console.error('Error retrieving tickets:', error);
     res.status(500).json({ success: false, error: 'Failed to retrieve tickets' });
   } 
+  finally {
+    await client.close();
+  }
  }
 };
 
